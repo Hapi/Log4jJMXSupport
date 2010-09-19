@@ -6,7 +6,7 @@
 >
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hapiware.jmx.log4j</groupId>
-	<artifactId>log4jJmxSupport</artifactId>
+	<artifactId>log4j-jmx-support</artifactId>
 	<version>1.0.0</version>
 	
 	<build>
