@@ -4,15 +4,16 @@ README - log4jJmxSupport
 
 DESCRIPTION
 -----------
-'log4jJmxSupport' is an utility library to add JMX support for log4j. The implemented
-interface is same than in Java Logging (java.util.logging.LoggingMXBean). This the 'loglevel'
-utility from hapiware can be used also with log4j. Of course other tools can be used also,
-such as jconsole, for example.
+'log4jJmxSupport' is an utility library to add JMX support for log4j by implementing
+(java.util.logging.LoggingMXBean) interface. This the 'loglevel' utility from hapiware
+can be used also with log4j. Of course other tools can be used also, such as jconsole,
+for example.
 
 
 REQUIREMENTS
 ------------
 - Java 1.5 or later
+- log4j v. 1.2 or later
 
 
 LICENSE

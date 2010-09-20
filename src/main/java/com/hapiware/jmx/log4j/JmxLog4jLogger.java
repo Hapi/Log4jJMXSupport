@@ -14,22 +14,45 @@ import org.apache.log4j.spi.LoggerFactory;
 
 
 /**
- * {@code JmxLog4jLogger} is factory class to get or register {@link org.apache.log4j.Logger}
+ * Adds a JMX support for log4j loggers by implementing java.util.logging.LoggingMXBean interface.
+ * This way JMX clients can manage log4j similarly than Java loggers. Log4j has it's own JMX support
+ * but according to the documentation it is not at the production level.
+ * 
+ * <h3>Usage</h3>
+ * <h4>Modifying source code</h4>
+ * {@code JmxLog4jLogger} is a factory class to get or register {@link org.apache.log4j.Logger}
  * objects. You either use one of the {@code getLogger()} methods or the {@code register()}
  * method, not both. The easiest way is to replace your current log4j {@code getLogger()} calls
  * with respective methods from this class and this is the preferred way. Here are some examples.
  * So, instead of this:
  * <pre>
- * 	  private final static Logger LOGGER = Logger.getLogger(MyClass.class);
+ * 	private final static Logger LOGGER = Logger.getLogger(MyClass.class);
  * </pre>
  * 
  * a logger is fetched (created) like this:
  * <pre>
- * 	  private final static Logger LOGGER = JmxLog4jLogger.getLogger(MyClass.class);
+ * 	private final static Logger LOGGER = JmxLog4jLogger.getLogger(MyClass.class);
  * </pre>
  * 
- * The other option is to use {@link JmxLog4jLogger#register(Logger)} method in static block,
- * for example.
+ * The other option is to use {@link JmxLog4jLogger#register(Logger)} method in {@code static}
+ * block like this:
+ * <pre>
+ * 	private final static Logger LOGGER = Logger.getLogger(MyClass.class);
+ * 	...
+ * 	static {
+ * 		JmxLog4jLogger.register(LOGGER);
+ * 	}
+ * 	...
+ * </pre>
+ * 
+ * 
+ * <h4>Without modifying source code</h4>
+ * If you have no access to source code (or does not want to change it) you can use
+ * {@link com.hapiware.asm.log4j.Log4jJmxSupportAgentDelegate}.
+ * 
+ * 
+ * <h3>Object name</h3>
+ * Object name for the MBean is {@code "org.apache.log4j:type=Logging"}.
  * 
  * 
  * @author <a href="http://www.hapiware.com" target="_blank">hapi</a>
