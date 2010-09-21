@@ -52,7 +52,7 @@ import org.apache.log4j.spi.LoggerFactory;
  * 
  * 
  * <h3>Object name</h3>
- * Object name for the MBean is {@code "org.apache.log4j:type=Logging"}.
+ * Object name for the MBean is {@code "com.hapiware.log4j:type=Logging"}.
  * 
  * 
  * @author <a href="http://www.hapiware.com" target="_blank">hapi</a>
@@ -60,7 +60,7 @@ import org.apache.log4j.spi.LoggerFactory;
  */
 public class JmxLog4jLogger
 {
-	private static final String LOGGING_NAME = "org.apache.log4j:type=Logging";
+	private static final String LOGGING_NAME = "com.hapiware.log4j:type=Logging";
 	
 	
 	/**
