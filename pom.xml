@@ -7,7 +7,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hapiware.jmx.log4j</groupId>
 	<artifactId>log4j-jmx-support</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	
 	<build>
 		<plugins>
@@ -31,6 +31,19 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Implementation-Title>${build.finalName}</Implementation-Title> 
+							<Implementation-Version>${project.version}</Implementation-Version>
+							<Implementation-Vendor>http://www.hapiware.com</Implementation-Vendor>
+						</manifestEntries>
+					</archive>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

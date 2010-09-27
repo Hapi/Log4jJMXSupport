@@ -40,7 +40,8 @@ public class Logging
 	
 	public String getLoggerLevel(String loggerName)
 	{
-		return _loggerRepository.getLogger(loggerName).getLevel().toString();
+		Level level = getLogger(loggerName).getLevel();
+		return level == null ? null : level.toString();
 	}
 
 	public List<String> getLoggerNames()
@@ -59,6 +60,25 @@ public class Logging
 
 	public void setLoggerLevel(String loggerName, String levelName)
 	{
-		_loggerRepository.getLogger(loggerName).setLevel(Level.toLevel(levelName));
+		getLogger(loggerName).setLevel(
+			levelName == null ? null : Level.toLevel(levelName)
+		);
+	}
+	
+	/**
+	 * Returns a root logger if the {@code loggerName} is "" (i.e. an empty {@code String}).
+	 * 
+	 * @param loggerName
+	 * 
+	 * @return
+	 * 		A logger.
+	 */
+	private Logger getLogger(String loggerName)
+	{
+		if(loggerName == null)
+			loggerName = "";
+		return
+			loggerName.length() == 0 ? 
+				_loggerRepository.getRootLogger() : _loggerRepository.getLogger(loggerName);
 	}
 }

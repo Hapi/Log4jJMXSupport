@@ -55,6 +55,12 @@ import org.apache.log4j.spi.LoggerFactory;
  * Object name for the MBean is {@code "com.hapiware.log4j:type=Logging"}.
  * 
  * 
+ * <h3>Root logger</h3>
+ * Notice that using this library unifies the root logger handling with Java logging.
+ * In practice this means that if logger name is an empty {@code String} ("") it is
+ * then interpreted as a root logger.
+ * 
+ * 
  * @author <a href="http://www.hapiware.com" target="_blank">hapi</a>
  * @see Logging
  */
