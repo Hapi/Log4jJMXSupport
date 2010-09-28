@@ -55,7 +55,7 @@ public class Logging
 
 	public String getParentLoggerName(String loggerName)
 	{
-		return _loggerRepository.getLogger(loggerName).getParent().getName();
+		return getLogger(loggerName).getParent().getName();
 	}
 
 	public void setLoggerLevel(String loggerName, String levelName)
